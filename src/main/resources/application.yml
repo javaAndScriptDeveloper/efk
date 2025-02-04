@@ -7,3 +7,27 @@ spring:
     change-log: classpath:/db/changelog/db.changelog-master.yaml
     drop-first: false
 
+server:
+  port: 9091
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: health
+  endpoint:
+    metrics:
+      access: unrestricted
+    prometheus:
+      access: unrestricted
+  metrics:
+    enable:
+      all: true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
